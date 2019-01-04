@@ -147,7 +147,7 @@
 
 
     function my_post() {
-        var url = "http://127.0.0.1:8080/api/cloudController/";
+        var url = "http://47.100.193.191:8080/api/cloudController/";
         var files = $("#inputImg").prop('files');
         var data = new FormData();
         var response = JSON.stringify({'code':201});

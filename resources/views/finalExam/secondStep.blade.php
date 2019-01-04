@@ -155,7 +155,7 @@
     }
 
     function my_post() {
-        var url = "http://127.0.0.1:8080/api/waterController/";
+        var url = "http://47.100.193.191:8080/api/waterController/";
         var data = new FormData();
         var response = JSON.stringify({'code':201});
         var threshold = $("#inputThreshold").val();
