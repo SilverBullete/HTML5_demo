@@ -53,7 +53,7 @@
                             <li class="user-info">
                                 <a href="javascript:">
                                     <img class="img-rounded" src="https://magicbox.bk.tencent.com/static_api/v3/components/horizontal_nav1/images/avatar.png">
-                                    <span>admin</span>
+                                    <span>张炜</span>
                                 </a>
                             </li>
                         </ul>
@@ -86,7 +86,6 @@
             </div>
             <div class="king-block-content">
                 <form class="form-horizontal" method="POST" style="padding-left: 14%;padding-right: 14%">
-                    {{ csrf_field() }}
                     <div class="form-group">
                         <label for="inputImg" class="col-sm-3 control-label">输入影像：</label>
                         <div class="col-sm-7">
@@ -117,6 +116,7 @@
     </div>
 </div>
 <script>
+    //判断是否可以点击下一步
     function isReady() {
         var classList = document.getElementById("button_next").classList;
         var bool = true;
@@ -127,6 +127,8 @@
         }
         return bool;
     }
+    //根据表单内容是否填满来改变按钮的颜色
+    //通过添加和移除class来改变按钮颜色
     function next() {
         var img = $("#inputImg").val();
         var threshold = $("#inputThreshold").val();
@@ -180,7 +182,7 @@
         $("#inputBand").kendoNumericTextBox({
             format:""
         });
-        $("#inputImg,#inputThreshold").blur(function () {
+        $("#inputImg,#inputThreshold").bind('input propertychange', function () {
             next();
         });
         $("#button_next").click(function () {
@@ -202,7 +204,6 @@
                 else {
                     var files = $("#inputImg").prop('files');
                     var fname = (files[0].name.split('.')).join("_cloud.");
-{{--//                    $.post('api/download/',{'fname':fname,'_token':csrf_token});{{URL::asset('/images/')}}--}}
                     var link = document.createElement('a');
                     link.setAttribute("download",fname);
                     link.href = "http://47.100.193.191:8080/Main/images/"+fname;
@@ -211,6 +212,9 @@
 
             }
         });
+        $("#button_cancel").click(function () {
+            window.location.href = '/';
+        })
 //        $("#button_preview").click(function () {
 //            if (isReady()){
 //                var res = my_post();

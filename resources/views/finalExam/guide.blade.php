@@ -53,7 +53,7 @@
                             <li class="user-info">
                                 <a href="javascript:;">
                                     <img class="img-rounded" src="https://magicbox.bk.tencent.com/static_api/v3/components/horizontal_nav1/images/avatar.png">
-                                    <span>admin</span>
+                                    <span>张炜</span>
                                 </a>
                             </li>
                         </ul>

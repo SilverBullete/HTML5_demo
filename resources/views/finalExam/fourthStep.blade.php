@@ -51,7 +51,7 @@
                             <li class="user-info">
                                 <a href="javascript:;">
                                     <img class="img-rounded" src="https://magicbox.bk.tencent.com/static_api/v3/components/horizontal_nav1/images/avatar.png">
-                                    <span>admin</span>
+                                    <span>张炜</span>
                                 </a>
                             </li>
                         </ul>
@@ -167,14 +167,14 @@
         $("#inputBand").kendoNumericTextBox({
             format:""
         });
-        $("#inputThreshold").blur(function () {
+        $("#inputThreshold").bind('input propertychange', function () {
             next();
         });
         $("#button_finish").click(function () {
             if (isReady()){
                 var res = my_post();
                 if (JSON.parse(res)['code'] == 200){
-                    window.location.href = 'guide';
+                    window.location.href = '';
                     var csrf_token = "<?php echo csrf_token()?>";
                     if (isReady()){
                         var res = my_post();
@@ -194,6 +194,9 @@
                 }
             }
         });
+        $("#button_cancel").click(function () {
+            window.location.href = '/';
+        })
     })
 </script>
 </body>
